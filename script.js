@@ -6,8 +6,8 @@ document.getElementById('convertButton').addEventListener('click', function () {
         return;
     }
 
-    // Replace &037 with & symbol
-    const correctedOpmlContent = opmlContent.replace(/&037;/g, '&');
+    // Replace & with &037;
+    const correctedOpmlContent = opmlContent.replace(/&(?!amp;|lt;|gt;|quot;|apos;)/g, '&037;');
 
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(correctedOpmlContent, "text/xml");
